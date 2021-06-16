@@ -1,0 +1,16 @@
+<?php
+use Postclick\Helpers\CoreHelper;
+
+if( isset( $pdfFooter )  ): ?>
+<table  cellspacing="10" cellpadding="20" style="width:100%;padding:0 10px;">
+   <tr>
+      <?php if($pdfFooter['text_with_image_image']) : ?>
+      <td style="vertical-align: center;"><img width="111" height="22" src="<?= CoreHelper::getImageOriginalPath($pdfFooter['text_with_image_image']['id']); ?>" alt="<?= esc_html($pdfFooter['text_with_image_image']['alt'] ?? ''); ?>" border="0" /></td>
+         <?php endif; ?>
+      <td style="font-size:12px;text-align:right;vertical-align: middle;height: 22px;">
+         <p>&nbsp;</p>
+         <p style="color: #81868E;">© <?=date('Y'); ?> <?= esc_html($pdfFooter['title'] ?? ''); ?>&nbsp;&nbsp;&nbsp;&nbsp;<?= $pagination ?? "" ;?></p>
+      </td>
+   </tr>
+</table>
+<?php endif;?>

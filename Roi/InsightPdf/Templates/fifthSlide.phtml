@@ -1,0 +1,37 @@
+<?php
+use Postclick\Helpers\CoreHelper;
+if( isset($fifthSlideContent) && !empty($fifthSlideContent) ): ?>
+<table style="width:100%; height:100%; " cellspacing="0" cellpadding="0">
+   <tr>
+      <td>
+         <table cellspacing="0" cellpadding="0" style="width:100%;">
+            <tr>
+               <td>
+                  <table  cellspacing="0" cellpadding="0" style="width:400px;">
+                     <tr>
+                        <td><?php if($fifthSlideContent['image']) : ?><span><img src="<?= CoreHelper::getImageOriginalPath($fifthSlideContent['image']['id'] ?? null) ?>" alt="<?= esc_html($fifthSlideContent['image']['alt']) ?? ''; ?>" border="0" /></span>
+                           <?php endif; ?>
+                           <?php if( isset( $fifthSlideContent['heading'] ) && isset( $fifthSlideContent['heading']['title'] ) ): ?>
+                             <h3 color="white" style="font-family:helvetica;font-weight:bold;font-size:38px;"><?= $fifthSlideContent['heading']['title'] ?? ''; ?></h3>
+                           <?php endif; 
+                           if( isset( $fifthSlideContent['numbers_showcase_items'] ) && !empty( $fifthSlideContent['numbers_showcase_items'] ) && is_array( $fifthSlideContent['numbers_showcase_items'] ) ): 
+                                foreach( $fifthSlideContent['numbers_showcase_items'] as $items ):
+                           ?>
+                           <p style="font-size:18px;color:#fff;"><?= esc_html($items['number'] ?? '') ?> <?= esc_html($items['description'] ?? '') ?></p>
+                           <?php endforeach; endif; ?>
+                           <a style="background-color:#ffffff;font-size:18px;text-decoration:none;line-height:38px;color:#000;" href="<?= esc_html($fifthSlideContent['url'] ?? '') ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= esc_html($fifthSlideContent['text'] ?? '') ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                           <p style="font-size:18px;color:#fff;">
+                              <?= esc_html($fifthSlideContent['title'] ?? '') ?> 
+                              <a style="font-size:18px;text-decoration:none;color:#fff;"  href="tel:<?= esc_html($fifthSlideContent['subtitle'] ?? '') ?>"><?= esc_html($fifthSlideContent['subtitle'] ?? '') ?>
+                              </a>
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+</table>
+<?php endif; ?>

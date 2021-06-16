@@ -1,0 +1,90 @@
+<?php
+/**
+ * Roi  Section default template
+ *
+ * @param string $message       String containing the message which is diplayed on testimonial.
+ * @param array  $image         Array of data about image - id, url, sizes etc.
+ * @param string $name          String containing the name used in testimonial.
+ * @param string $designation   String containing the designation used in testimonial.
+ * @param string $logo          Array of data about logo used in testimonial - id, url, sizes etc.
+ * @param string $url            String containing the profile url used in testimonial.
+ *
+ * @example Usage
+ * Component::render('Roi/howItWorks');
+ * @endexample
+ */
+
+use InstaWP\TemplateSystem\Component\Component;
+?>
+<section class="pc-howitworks-header pc-pt-static-12 pc-text-center">
+    <div class="container">
+        <div class="row pc-howitworks-header-content">
+            <div class="col-md-12">
+            <?php if( isset( $section) && isset( $section['title'] ) && !empty( $section['title'] ) ): ?>
+                <h2><?= $section['title']?></h2>
+            <?php endif; ?>
+            <?php if( isset( $section) && isset( $section['subtitle'] ) && !empty( $section['subtitle'] ) ): ?>
+                <p class="js-animation col-12 col-md-8 offset-md-2 pc-mb-static-8 is-appearing"><?= $section['subtitle']?></p>
+            <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pc-howitworks-section pc-pb-static-3">
+    <div class="container">
+        <div class="row pc-howitworks-section-content">
+            <div class="col-md-12 pc-roi-grid-flex">
+            <?php foreach( $expandableTiles as $expandableTile ): ?>
+                <div class="pc-howitworks-grid">
+                <?php if (!empty($expandableTile['header']['icon'])) : ?>
+                        <div class="pc-howitworks-icon">
+                            <div class="pc-howitworks-icon-wrapper">
+                                <?php 
+                                Component::render(
+                                    'Generic/Image',
+                                    [
+                                        'onlyLazyImageClass' => true,
+                                        'isAnimated' => false,
+                                        'imageClass' => 'pc-image-contained',
+                                        'image' => $expandableTile['header']['icon'],
+                                        'constrainMaxWidth' => false
+                                    ]
+                                ); 
+                                ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                        <?php if( isset($expandableTile['header']) && isset($expandableTile['header']['headline']) && !empty($expandableTile['header']['headline']) ): ?>
+                        <h6><?= $expandableTile['header']['headline'] ?></h6>
+                        <?php endif; ?>
+                        <?php if( isset($expandableTile['header']) && isset($expandableTile['header']['text']) && !empty($expandableTile['header']['text']) ): ?>
+                            <p><?= $expandableTile['header']['text'] ?></p>
+                        <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pc-howitworks-footer pc-text-center">
+    <div class="container">
+        <div class="row pc-howitworks-footer-content">
+            <div class="col-md-12">
+                    <?php
+                        Component::render(
+                            'Generic/Button',
+                            [
+                                'button' => [
+                                    'class' => 'pc-button-medium pc-button-full pc-button-dark',
+                                    'type' => 'outline',
+                                    'text' => 'Get my insights',
+                                    'url' => '/my-score-step/'
+                                ]
+                            ]
+                        ); ?>
+
+                    <p class="col-sm-12 pc-text-center pc-mt-static-2">It takes less than 5 minutes.</p>
+            </div>
+        </div>
+    </div>
+</section>

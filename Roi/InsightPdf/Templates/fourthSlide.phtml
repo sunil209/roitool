@@ -1,0 +1,199 @@
+<?php use InstaWP\TemplateSystem\Component\Component;  ?>
+<?php 
+   if( isset( $content ) ): 
+      $withOutPostClick = $content['withoutPostclick'];
+      $withPostClick = $content['withPostclick'];
+	  $totalPages = $content['totalPages'];
+?>
+<h4 style="font-size:36px;color: #000;line-height:36px;">Key results</h4>
+		<p style="font-size:14px;color:#000000; line-height: 20px;">
+		Compare your current Google Ads performance with the potential returns that come with increased ad-to-page relevancy.<br>Adjust the sliders to see how a better Post-click Score can impact your return on ad spend.
+        </p>
+
+		<table>
+			<tr>
+				<td width="430">
+					<table>
+						<tr>
+							<td style="font-size:30px;color: #000;line-height:35px;">Without Postclick</td>
+						</tr>
+						<tr>
+							<td style="height:1px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+						<tr>
+							<td style="font-size:14px;color:#000000; line-height: 20px;">This column calculates your current Google ads performance before leveraging the benefits of Post-click Automation from Postclick.</td>
+						</tr>
+						<tr>
+							<td style="height:50px; font-size:30px;color: #000;line-height:20px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<table>
+									<tr>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29;">Post-click Score</p>
+												<h4 style="color: #000;font-size:50px;line-height:30px;"><?php echo $withOutPostClick['postclickScore'] ?? ''; ?></h4>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Conversion rate</p>
+												<h6 style="color: #000;font-size:22px;line-height:2px;"><?php echo $withOutPostClick['conversionRate'] ?? ''; ?>%</h6>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Cost per click</p>
+												<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerClick'] , 2); ?></h6>
+											</td>
+									</tr>
+									<tr>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px;"></p>
+												<h4 style="color: #000;font-size:13px;line-height:15px;"></h4>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Cost per acquisition</p>
+												<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerAcquisition'], 2) ?? ''; ?></h6>
+											</td>
+											<td style="width: 20px;"></td>
+											<?php if(isset($content['industry']) && $content['industry'] != 'E-commerce'): ?>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px;color:#171E29 ">Cost per lead</p>
+												<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerLead'] , 2) ?? ''; ?></h6>
+											</td>
+											<?php endif; ?>
+									</tr>
+									<tr>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:13px; line-height: 15px;"></p>
+												<h4 style="color: #000;font-size:13px;line-height:15px;"></h4>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Annual  profit</p>
+												<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withOutPostClick['annualProfit'] , 2)) ?? ''; ?></h6>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 130px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Annual revenue</p>
+												<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withOutPostClick['annualRevenue'] , 2)) ?? ''; ?></h6>
+											</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="background-color: #050505; height:15px;">
+								<table cellpadding="15">
+									<tr>
+										<td style="color:#ffffff;">
+											<h4 style="color: #ffffff;font-size:30px;line-height:30px;"> <?php echo round($withOutPostClick['currentRoas'] , 0) ?? 0; ?>%</h4>
+											<p style="color: #ffffff;font-size:12px; line-height: 15px;">Your current ROAS</p>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="80">
+					<table>
+						<tr>
+							<td style="font-size:30px;color: #000;line-height:32px;"></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table width="430">
+						<tr>
+							<td style="font-size:30px;color: #000;line-height:35px;">With Postclick</td>
+						</tr>
+						<tr>
+							<td style="height:1px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+						<tr>
+							<td style="font-size:14px;color:#000000; line-height: 20px;">This column calculates the ROI opportunities available when you improve your ad-to-page relevancy by leveraging the benefits of Post-click Automation from Postclick.</td>
+						</tr>
+						<tr>
+							<td style="height:30px; font-size:15px;color: #000;line-height:15px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<table>
+									<tr>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 120px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29;">Post-click score</p>
+												<h4 style="color: #000;font-size:50px;line-height:30px;"><?php echo $withPostClick['postclickScore'] ?? ''; ?></h4>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 135px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Conversion rate</p>
+												<h6 style="color: #000;font-size:20px;line-height:2px;"><?php echo $withPostClick['conversionRate'] ?? ''; ?>%</h6>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 135px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Cost per click</p>
+												<h6 style="color: #000;font-size:20px;line-height:2px;">$<?php echo round($withPostClick['costPerClick'] , 2); ?></h6>
+											</td>
+									</tr>
+									<tr>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 120px;">
+												<p style="color: #000;font-size:12px; line-height: 15px;"></p>
+												<h4 style="color: #000;font-size:13px;line-height:15px;"></h4>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 135px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Cost per acquisition</p>
+												<h6 style="color: #000;font-size:20px;line-height:2px;">$<?php echo round($withPostClick['costPerAcquisition'], 2) ?? ''; ?></h6>
+											</td>
+											<td style="width: 20px;"></td>
+											<?php if(isset($content['industry']) && $content['industry'] != 'E-commerce'): ?>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 135px;">
+												<p style="color: #000;font-size:12px; line-height: 15px;color:#171E29 ">Cost per lead</p>
+												<h6 style="color: #000;font-size:20px;line-height:2px;">$<?php echo round($withPostClick['costPerLead'] , 2) ?? ''; ?></h6>
+											</td>
+											<?php endif; ?>
+									</tr>
+									<tr>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 120px;">
+												<p style="color: #000;font-size:13px; line-height: 15px;"></p>
+												<h4 style="color: #000;font-size:13px;line-height:15px;"></h4>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 135px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Annual  profit</p>
+												<h6 style="color: #000;font-size:20px;line-height:2px;">$<?php echo number_format(round($withPostClick['annualProfit'] , 2)) ?? ''; ?></h6>
+											</td>
+											<td style="width: 20px;"></td>
+											<td style="font-size:15px;color: #000;line-height:15px; width: 135px;">
+												<p style="color: #000;font-size:12px; line-height: 15px; color:#171E29">Annual revenue</p>
+												<h6 style="color: #000;font-size:20px;line-height:2px;">$<?php echo number_format(round($withPostClick['annualRevenue'] , 2)) ?? ''; ?></h6>
+											</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="background-color: #050505; height:15px;">
+								<table cellpadding="15">
+									<tr>
+										<td style="color:#ffffff;width: 250px;">
+											<h4 style="color: #ffffff;font-size:30px;line-height:30px;"><?php  echo round($withPostClick['currentRoas']) ?? ''; ?>%</h4>
+											<p style="color: #ffffff;font-size:12px; line-height: 15px;">Your current ROAS</p>
+										</td>
+										<td style="width: 180px; text-align:right;">
+											<p style="color: #00D4AE;font-size:15px; line-height: 15px;">+<?php if($withPostClick['currentRoas']  && $withOutPostClick['currentRoas']){echo round($withPostClick['currentRoas'] - $withOutPostClick['currentRoas'] , 0) ; } ;?>
+    %</p>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						
+					</table>
+				</td>
+			</tr>
+		</table>
+
+<?php endif; ?>
+<?php Component::render('Roi/InsightPdf', 'pdfFooter' , ['pagination' => '7/'.$totalPages] );?>

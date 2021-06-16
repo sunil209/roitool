@@ -1,0 +1,24 @@
+<?php 
+use InstaWP\TemplateSystem\Component\Component;
+use Postclick\Helpers\CoreHelper;
+
+if( isset($secondSlideHeading) && isset( $secondSlideHeading['title'] ) ): ?>
+<div style="line-height:90px;">
+     <h4 style="color: #fff;text-align:center;font-size:36px;"><?= esc_html($secondSlideHeading['title'] ?? ''); ?></h4>
+   <p style="color: #fff;text-align:center;font-size:18px;"><?= wp_kses($secondSlideHeading['subtitle'] ?? '', ['br'=>true]); ?></p>
+</div>
+<?php endif; ?>
+<?php if( isset($secondSlideLogos) && isset($secondSlideLogos['tiles']) && is_array( $secondSlideLogos['tiles'] )): ?>
+   <table align="center" cellspacing="0" cellpadding="0" style="width:100%;" style="margin: 0 auto; text-align:center;">
+      <tr>
+         <?php foreach( $secondSlideLogos['tiles'] as $tileKeys => $tile ): ?>
+         <?php if( $tileKeys == 3  ){ echo '</tr><br><tr>'; } ?>
+               <td style="font-size:18px;">
+                  <img height="62" width="62" src="<?= CoreHelper::getImageOriginalPath($tile['image']['id'] ?? null) ?>" alt="<?= esc_html($tile['image']['alt']) ?? ''; ?>" border="0" />
+                  <br><?= esc_html($tile['title']) ?? ''; ?>
+               </td>
+         <?php endforeach;?>
+      </tr>
+   </table>
+<?php endif; ?>
+<?php Component::render('Roi/InsightPdf', 'pdfFooter' );?>

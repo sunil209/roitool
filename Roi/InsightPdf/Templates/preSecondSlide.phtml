@@ -1,0 +1,76 @@
+<?php 
+   use InstaWP\TemplateSystem\Component\Component;
+   use Postclick\Helpers\CoreHelper;
+ ?>
+ <div style="border-color:#fff;">
+     <table style="border-color:#fff;">
+			<tr>
+				<td width="500">
+					<table>
+						<tr>
+							<td style="color:#000;font-size:30px;line-height:35px;"> 
+                                <h2 style="color:#000;font-size:30px;line-height:35px;">Advertisers need to get better results from their digital ad spend.</h2>
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:10px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;">To do that, they need to convert more prospects by providing them with personalized post-click experiences where 
+                            the conversions happen.However, advertisers have been convinced that delivering and measuring higher ad-to-page relevancy is too complex to handle on their own.
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:10px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;">It’s long been a challenge for advertisers to assess their funnel's post-click stage since so many factors can affect performance. 
+                            It’s a new way of thinking about the advertising funnel and, until now, it’s been challenging to evaluate post-click success beyond simple click-throughs and conversion rates.
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:10px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;">Introducing the Post-click Self-Assessment. As you have already experienced, our self-serve tool analyses your digital ad campaign data in just a few minutes and delivers a detailed report. This complimentary self-assessment is unlike any other in the marketplace. It features an ROI analysis, industry and competitive benchmarking, 
+                             top-line and bottom-line impact analysis, recommendations for improvement, and a personalized report complete with your Post-click Score.
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:10px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;">The Post-click Score is a unified metric that summarizes your success across six key factors that influence your return on ad spend, from page speed to message fit. 
+                            Backed by data science and a decade of conversion expertise, this metric evaluates your ad-to-page relevancy.
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:10px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;">We hope you enjoy this report.
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:10px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;">Postclick, always be converting.
+                            </td>
+						</tr>
+                        <tr>
+							<td style="height:25px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="color:#171E29;font-size:14px;line-height:20px;"> 
+                            <?php if($pdfFooter['text_with_image_image']) : ?>
+                                        <img width="111" height="22" src="<?= CoreHelper::getImageOriginalPath($pdfFooter['text_with_image_image']['id']); ?>" alt="<?= esc_html($pdfFooter['text_with_image_image']['alt'] ?? ''); ?>" />
+                                <?php endif; ?>
+                            </td>
+						</tr>
+                    </table>
+                </td>
+                <td width="50"></td>
+            </tr>
+        </table>
+</div>

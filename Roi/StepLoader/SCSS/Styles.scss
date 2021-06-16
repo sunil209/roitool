@@ -1,0 +1,34 @@
+@import '../../../../Assets/Src/SASS/Generic/Variables';
+@import '../../../../Assets/Src/SASS/Functions/SmoothScaling';
+@import '../../../../Assets/Src/SASS/Functions/Spacer';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.pc-finalising-loader{
+    max-width: 376px;
+    margin: 0 auto;
+    @include media-breakpoint-down(sm) {
+      max-width: 275px
+    }
+   .pc-slide-progress-bar {
+       width: 100%;
+       background-color: rgba(155, 155, 155, 0.36);
+       transition: width 10s linear;
+       display: inline-block;
+       vertical-align: middle;
+     .pc-progress-bar {
+         height: 5px;
+         background-color: #050505;
+         position: relative;
+         transition: linear;
+         width: 0%;
+     }
+     .pc-percentage-counter{
+       font-size: 16px;
+       line-height: 26px;
+       color:#050505;
+       display: block;
+       background-color: #ffffff;
+     }
+   }
+ 
+ }

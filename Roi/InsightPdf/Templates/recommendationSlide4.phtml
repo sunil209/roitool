@@ -1,0 +1,125 @@
+<?php use InstaWP\TemplateSystem\Component\Component;  ?>
+<?php 
+   if( isset( $content ) ): 
+      $checkImg = '<img src="/wp-content//themes/postclick/src/Components/Roi/InsightPdf/images/checkIcon.jpg" width="13" height="13">';
+	  $crossImg = '<img src="/wp-content//themes/postclick/src/Components/Roi/InsightPdf/images/crossIcon.jpg" width="10" height="10">';
+	  $fetchContent = $content['graphs']['SlideContent'];
+	  $totalPages = $content['totalPages'];
+?>
+		<style> .listing_results td a{color: #000000 !important;}</style>
+        <h4 style="font-size:28px;color: #000;line-height:30px;"><?= $content['graphs']['recomendationHeading']; ?></h4>
+		<table>
+            <tr>
+				<td style="font-size:30px;color: #000;line-height:35px;height:30px;" colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="580" valign="top">
+					<table>
+						<tr>
+							<td style="font-size:22px;color: #000;line-height:30px; font-weight:bold;"><?= $content['graphs']['counter']; ?>. <?= $fetchContent['recommendation_label']; ?></td>
+						</tr>
+						<tr>
+							<td style="height:5px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+						<tr>
+							<td style="font-size:14px;color:#000000; line-height: 20px;"><?= $fetchContent['recommendation_description']; ?></td>
+						</tr>
+                        <tr>
+							<td style="height:22px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="font-size:18px;color: #000;line-height:22px; font-weight:bold;">Your Results</td>
+						</tr>
+                        <tr>
+							<td style="height:5px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="font-size:14px;color:#000000; line-height: 20px;">
+								<?php 
+										if(isset($fetchContent['recommendation_results']) && $fetchContent['recommendation_results'] != '')
+											{
+												echo '<table class="listing_results">';
+											//	$listCount = substr_count($fetchContent['recommendation_results'],'<li>');	
+												$recommendation_results = explode("</li>",$fetchContent['recommendation_results']);
+												$results_counter = count($recommendation_results);
+												foreach($recommendation_results as $recommendation_result) {
+													if (--$results_counter <= 0) {
+														break;
+													}
+													$recommendation_result = str_replace('<li>','' , $recommendation_result);  
+													if(!empty($recommendation_result) && $recommendation_result !== ''){
+														echo '<tr><td style="text-align:left;" width="13">'.$checkImg.'</td>'; 
+														echo '<td style="font-size:10px; color: #000;line-height:10px;" width="7">&nbsp;</td>'; 
+														echo '<td style="font-size:14px; color: #000;line-height:20px;" width="560">';
+														echo $recommendation_result;
+														echo '</td>';
+														echo '</tr>';
+													 }  
+												}
+												echo "</table>";
+											}
+									
+								?>	
+                            </td>
+						</tr>
+						<tr>
+							<td style="height:22px; font-size:15px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+							<td style="font-size:18px;color: #000;line-height:22px; font-weight:bold;">Things to improve</td>
+						</tr>
+                        <tr>
+							<td style="height:5px; font-size:5px;color: #000;line-height:5px;"></td>
+						</tr>
+                        <tr>
+                            <td style="font-size:14px;color:#000000; line-height: 20px;">
+								<?php 
+
+										if(isset($fetchContent['recommendation_points']) && $fetchContent['recommendation_points'] != '')
+										{
+											echo '<table class="listing_results">';
+											$recommendation_points = explode("</li>",$fetchContent['recommendation_points']);
+											$points_counter = count($recommendation_points);
+											foreach($recommendation_points as $recommendation_point) {
+												if (--$points_counter <= 0) {
+													break;
+												}
+												$recommendation_point = str_replace('<li>','' , $recommendation_point);  
+												if($recommendation_point != ''){
+													echo '<tr><td style="text-align:left;" width="13">'.$crossImg.'</td>'; 
+													echo '<td style="font-size:10px; color: #000;line-height:10px;" width="7">&nbsp;</td>'; 
+													echo '<td style="font-size:14px; color: #000;line-height:20px;" width="560">';
+													echo $recommendation_point;
+													echo '</td>';
+													echo '</tr>';
+												}  
+											}
+											echo "</table>";
+										}
+
+								?>
+                            </td>
+						</tr>
+					</table>
+				</td>
+				<td width="100" valign="top">
+					<table>
+						<tr>
+							<td style="font-size:30px;color: #000;line-height:32px;"></td>
+						</tr>
+					</table>
+				</td>
+				<td valign="top" style="line-height:1px;"> 
+					<table width="310" valign="top">
+						<tr>
+							<td valign="top" style="line-height:1px;"><?= $content['graphs']['SemiCircleGraph']; ?> </td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+            <tr>
+				<td style="font-size:30px;color: #000;line-height:35px;height:50px;" colspan="3">&nbsp;</td>
+			</tr>
+		</table>
+<?php endif; ?>
+<?php Component::render('Roi/InsightPdf', 'pdfFooter' , ['pagination' => '12/'.$totalPages] );?>

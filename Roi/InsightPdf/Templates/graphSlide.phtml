@@ -1,0 +1,191 @@
+<?php 
+use InstaWP\TemplateSystem\Component\Component;  
+use Postclick\Helpers\CoreHelper;
+$totalPages = $content['totalPages'];
+?>
+		<h4 style="font-size:30px;color: #000;line-height:25px; text-align:center; font-weight: bold;">Your Post-click Score</h4>
+		<p style="font-size:14px;color:#000000; line-height: 20px; text-align:center;">
+		The Post-click Score of the landing page you provided measures your progress towards ad-to-page <br> personalization across multiple factors using industry benchmarks and real-time information from Google.
+        </p>
+		<table>
+			<tr>
+				<td width="960">
+					<table>
+						<tr>
+							<td style="height:10px; font-size:10px;color: #000;line-height:10px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<table>
+									<tr>
+									    <td style="width:55px"></td>
+										<td style="width:256px">
+											<div style="line-height:0px;" valign="top">
+												<!-- <img width="256" src="images/postclick/line.png" alt="Post Click Health Analysis" border="0" style="line-height:0px;" /><br> -->
+												<img width="256" src="<?= CoreHelper::getImageOriginalPath($content['screenshot']) ?>" alt="Post Click Health Analysis" border="0" style="line-height:0px;" />
+											</div>
+										</td>
+										<td style="width:40px"></td>
+										<td style="width:306px">
+											<table>
+												<tr>
+													<td style="font-size:20px;color:#000000; font-weight:bold; line-height: 20px;">Post-click Score</td>
+												</tr>
+												<tr>
+													<td style="height:10px; font-size:10px;color: #000;line-height:10px;"></td>
+												</tr>
+												<tr>
+													<td style="font-size:13px;color:#81868E; line-height: 20px;">
+															<?php 
+															$landingUrl =  preg_replace('/((^https?:\/\/)?(www\.)?)|(\/$)/', '', esc_html($content['landing_url']) );
+															$domain = explode('/', $landingUrl);
+															echo $domain[0];
+															?> on <?php echo $content['pdfTime'].' (UTC)'; ?></td>
+													</tr>
+												<tr>
+													<td style="height:20px; font-size:20px;color: #000;line-height:20px;"></td>
+												</tr>
+												<tr>
+													<td style="font-size:13px;color:#171E29; line-height: 20px;"><?php echo $content['messages'] ?? ""; ?>
+													</td>
+												</tr>
+												<tr>
+													<td style="height:10px; font-size:10px;color: #000;line-height:10px;"></td>
+												</tr>
+												<tr>
+													<td style=""><?php echo $content['graphs']['borderLineGraph']; ?>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td style="width:40px"></td>
+										<td style="width:158px">
+												<?php  echo $content['graphs']['postclickScoreGraph']; ?> 
+										</td>
+										<td style="width:55px"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="height:8px; font-size:8px;color: #000;line-height:8px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<h6 style="font-size:20px;color: #000;line-height:20px; text-align:center; font-weight: bold;"> Performance of your Landing Page</h6>
+							</td>
+						</tr>
+						<tr>
+							<td style="height:8px; font-size:8px;color: #000;line-height:8px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<p style="font-size:14px;color:#000000; line-height: 20px; text-align:center;">
+								 Measures the performance of the landing page you used to run this assessment against the benchmarks we have 
+								 <br> established from millions of pages we&#39;ve analyzed.
+						        </p>
+							</td>
+						</tr>
+						<tr>
+							<td style="height:15px; font-size:10px; color: #000; line-height:8px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td style="font-size:10px; line-height:10px; text-align:center;">
+											<table width="150">
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<?php echo $content['graphs']['deviceCentricPieGraph']; ?>
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<h4 style="font-size:10px; color: #000;line-height:10px; text-align:center;">Device Centric</h4>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td style="font-size:10px; line-height:10px; text-align:center;">
+											<table width="150">
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<?php echo $content['graphs']['messageFitPieGraph']; ?>
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<h4 style="font-size:10px; color: #000;line-height:10px; text-align:center;">Message fit</h4>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td style="font-size:10px; line-height:10px; text-align:center;">
+											<table width="150">
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<?php echo $content['graphs']['pageSpeedPieGraph']; ?>
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<h4 style="font-size:10px; color: #000;line-height:10px; text-align:center;">Page speed</h4>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td style="font-size:10px; line-height:10px; text-align:center;">
+											<table width="150">
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<?php echo $content['graphs']['conversionPieGraph']; ?>
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<h4 style="font-size:10px; color: #000;line-height:10px; text-align:center;">Conversion UX</h4>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td style="font-size:10px; line-height:10px; text-align:center;">
+											<table width="150">
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<?php echo $content['graphs']['securityPieGraph']; ?>
+													</td>
+												</tr>
+												<tr>
+													<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+														<h4 style="font-size:10px; color: #000;line-height:10px; text-align:center;">Security and Content</h4>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<?php if( $content['method'] == 'pc-roi-option-step-a' ): ?>
+											<td style="font-size:10px; line-height:10px; text-align:center;">
+												<table width="150">
+													<tr>
+														<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+															<?php echo $content['graphs']['qualityPieGraph']; ?>
+														</td>
+													</tr>
+													<tr>
+														<td style="font-size:10px; color: #000;line-height:10px; text-align:center;">
+															<h4 style="font-size:10px; color: #000;line-height:10px; text-align:center;">Quality Score</h4>
+														</td>
+													</tr>
+												</table>
+											</td>
+										<?php endif; ?>
+										
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<?php Component::render('Roi/InsightPdf', 'pdfFooter' , ['pagination' => '6/'.$totalPages] );?>

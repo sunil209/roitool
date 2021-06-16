@@ -1,0 +1,179 @@
+<?php use InstaWP\TemplateSystem\Component\Component;  ?>
+<?php 
+   if( isset( $content ) ): 
+      $withOutPostClick = $content['withoutPostclick'];
+      $withPostClick = $content['withPostclick'];
+?>
+<h4 style="font-size:36px;color: #000;line-height:40px;">&nbsp;&nbsp;Key results</h4>
+<table>
+<tr>
+<td>
+<table cellspacing="10" cellpadding="8" width="400px">
+<tr>
+    <td style="font-size:22px; font-weight:bold;" colspan="2">Without Postclick</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Post-click Score</p>
+<h4 style="color: #000;font-size:36px;line-height:2px;"><?php echo $withOutPostClick['postclickScore'] ?? ''; ?></h4>
+</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Conversion rate</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;"><?php echo $withOutPostClick['conversionRate'] ?? ''; ?>%</h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Cost per click</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerClick'] , 2); ?></h6>
+</td>
+</tr>
+<?php if($content['industry']!=='E-commerce'){?>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Cost per acquisition</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerAcquisition'], 2) ?? ''; ?></h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Cost per lead</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerLead'] , 2) ?? ''; ?></h6>
+</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Annual  profit</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withOutPostClick['annualProfit'] , 2)) ?? ''; ?></h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Annual revenue</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withOutPostClick['annualRevenue'] , 2)) ?? ''; ?></h6>
+</td>
+</tr>
+<?php }else{ ?>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Cost per acquisition</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withOutPostClick['costPerAcquisition'], 2) ?? ''; ?></h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Annual  profit</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withOutPostClick['annualProfit'] , 2)) ?? ''; ?></h6>
+</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Annual revenue</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withOutPostClick['annualRevenue'] , 2)) ?? ''; ?></h6>
+</td>
+</tr>
+<?php }?>
+<br>
+<tr>
+<td style="background-color: #000;width:100%;">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+    <td style="font-size:30px; text-align:left; font-weight:bold; color:#ffffff;">
+    <?php echo round($withOutPostClick['currentRoas'] , 0) ?? 0; ?>%</td>
+    <td style="font-size:22px; text-align:right; color:#00D4AE;"></td>
+</tr>
+<tr>
+    <td style="font-size:2px; height: 20px;" colspan="2"></td>
+</tr>
+<tr>
+    <td style="font-size:14px; line-height: 23px; text-align:left;color:#ffffff;">Your current ROAS</td>
+    <td style="font-size:14px; line-height: 23px; text-align:right; color:#00D4AE;"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td>
+<table cellspacing="10" cellpadding="8" width="400px" >
+<tr>
+    <td style="font-size:22px; font-weight:bold;" colspan="2">With Postclick</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Post-click Score</p>
+<h4 style="color: #000;font-size:36px;line-height:2px;"><?php echo $withPostClick['postclickScore'] ?? ''; ?></h4>
+</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Conversion rate</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;"><?php echo $withPostClick['conversionRate'] ?? ''; ?>%</h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Cost per click</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withPostClick['costPerClick'] , 2); ?></h6>
+</td>
+</tr>
+<?php if($content['industry']!=='E-commerce'){?>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Cost per acquisition</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withPostClick['costPerAcquisition'] , 2) ?? ''; ?></h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Cost per lead</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withPostClick['costPerLead'] , 2) ?? ''; ?></h6>
+</td>
+</tr>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Annual  profit</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$ <?php echo number_format(round($withPostClick['annualProfit'] , 2)) ?? ''; ?></h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Annual revenue</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withPostClick['annualRevenue'] , 2)) ?? ''; ?></h6>
+</td>
+</tr>
+<?php }else{ ?>
+<tr>
+<td>
+<p style="color: #000;font-size:14px;">Cost per acquisition</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo round($withPostClick['costPerAcquisition'] , 2) ?? ''; ?></h6>
+</td>
+<td>
+<p style="color: #000;font-size:14px;">Annual  profit</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$ <?php echo number_format(round($withPostClick['annualProfit'] , 2)) ?? ''; ?></h6>
+</td>
+
+</tr>
+<tr>
+
+<td>
+<p style="color: #000;font-size:14px;">Annual revenue</p>
+<h6 style="color: #000;font-size:22px;line-height:2px;">$<?php echo number_format(round($withPostClick['annualRevenue'] , 2)) ?? ''; ?></h6>
+</td>
+</tr>
+<?php }?>
+<br>
+<tr>
+<td style="background-color: #000;width:100%;">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+    <td style="font-size:30px; text-align:left; font-weight:bold; color:#ffffff;">
+    <?php  echo round($withPostClick['currentRoas']) ?? ''; ?>%</td>
+    <td style="font-size:22px; text-align:right; color:#00D4AE;"><span style="font-size:14px;color:#00D4AE;">+
+    <?php if($withPostClick['currentRoas']  && $withOutPostClick['currentRoas']){echo round($withPostClick['currentRoas'] - $withOutPostClick['currentRoas'] , 0) ; } ;?>
+    %</span></td>
+</tr>
+<tr>
+    <td style="font-size:2px; height: 20px;" colspan="2"></td>
+</tr>
+<tr>
+    <td style="font-size:14px; line-height: 23px; text-align:left;color:#ffffff;">Your ROAS with Postclick</td>
+    <td style="font-size:14px; line-height: 23px; text-align:right; color:#00D4AE;"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<?php endif; ?>
+<?php Component::render('Roi/InsightPdf', 'pdfFooter' );?>

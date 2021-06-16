@@ -1,0 +1,31 @@
+<?php
+/**
+ * Roi  Section default template
+ *
+ * @param string $message       String containing the message which is diplayed on testimonial.
+ * @param array  $image         Array of data about image - id, url, sizes etc.
+ * @param string $name          String containing the name used in testimonial.
+ * @param string $designation   String containing the designation used in testimonial.
+ * @param string $logo          Array of data about logo used in testimonial - id, url, sizes etc.
+ * @param string $url            String containing the profile url used in testimonial.
+ *
+ * @example Usage
+ * Component::render('Generic/RoiSingleStep', 'stepLoader');
+ * @endexample
+ */
+
+use InstaWP\TemplateSystem\Component\Component;
+?>
+<div class="pc-dim pc-background-white pc-roi-loader-final-step pc-hide-step" id="pc-roi-analysis">
+    <span id="pc-roi-result-analysis" class="pc-popup-close pc-roi-close">
+    </span>
+    <div class="pc-roi-result-analysis">
+        <h6 class="pc-mb-static-5">Analysing your data...</h6>
+        <div class="pc-finalising-loader">
+            <div class="pc-slide-progress-bar">
+                <div class="pc-progress-bar" id="pc-progress-bar"></div>
+                <div class="pc-percentage-counter pc-pt-static-5" id="pc-percentage-counter"></div>
+            </div>
+        </div>  
+    </div>              
+</div>

@@ -1,0 +1,58 @@
+<?php 
+use InstaWP\TemplateSystem\Component\Component;  
+use Postclick\Helpers\CoreHelper;
+$totalPages = $content['totalPages'];
+?>
+		<table>
+			<tr>
+				<td width="940">
+					<table>
+						<tr>
+							<td style="height:40px; font-size:30px;color: #000;line-height:20px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<h4 style="font-size:30px;color: #000;line-height:34px; text-align:center; font-weight: bold;">Post-click Self-Assessment for <br>
+								<?php $landingPageUrl = strlen($content['landing_url']) > 60 ? substr($content['landing_url'],0,55)."..." : $content['landing_url']; ?>
+										<a style="color:#050505; text-decoration:none;" href="<?php echo esc_html($content['landing_url']); ?>" target="_blank"><?php echo esc_html($landingPageUrl); ?></a>
+								</h4>
+							</td>
+						</tr>
+						<tr>
+							<?php $urlHeight = strlen($content['landing_url']) > 60 ? '50' : '80'; ?>
+							<td style="height:<?= $urlHeight; ?>px; font-size:30px;color: #000;line-height:20px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<h4 style="font-size:24px;color: #000;line-height:28px; text-align:center; font-weight: bold;">
+									You’re currently losing <span style="color: #DA4963; line-height:28px; text-align:center; font-weight: bold; font-size:24px;">$<?php echo $content['graphs']['currentRevenueLoss']; ?></span></h4>
+							</td>
+						</tr>
+						<tr>
+							<td style="height:70px; font-size:30px;color: #000;line-height:40px;"></td>
+						</tr>
+						<tr>
+							<td style="height:20px; font-size:30px;color: #000;line-height:20px; text-align:center;"><?php echo $content['graphs']['annualGraph']; ?></td>
+						</tr>
+						<tr>
+							<td style="height:30px; font-size:30px;color: #000;line-height:20px;"></td>
+						</tr>
+						<tr>
+							<td>
+								<p style="font-size:14px;color:#000000; line-height: 20px; text-align:center;">
+								  <a href="<?= site_url()?>/my-score-contact/" target="_blank" style="font-size:14px;color:#000000; line-height: 20px;">Find out how to improve these results </a>
+						        </p>
+							</td>
+						</tr>
+						<tr>
+							<td style="height:70px; font-size:30px;color: #000;line-height:20px;"></td>
+						</tr>
+						<tr>
+							<td style="height:70px; font-size:30px;color: #000;line-height:20px;"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+<?php Component::render('Roi/InsightPdf', 'pdfFooter' , ['pagination' => '5/'.$totalPages] );?>
+

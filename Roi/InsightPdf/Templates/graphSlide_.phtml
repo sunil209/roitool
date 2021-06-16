@@ -1,0 +1,155 @@
+<?php 
+use InstaWP\TemplateSystem\Component\Component;  
+use Postclick\Helpers\CoreHelper;
+//echo '<pre>'; print_r( $content ); echo '</pre>'; die();
+?>
+<div style="border-color:#fff; line-height: 0px;">
+	   <table cellspacing="0" cellpadding="0" style="width:100%;">
+		  <tr>
+				<td style="line-height: 5x; font-size: 3px; height:50px; ">&nbsp;&nbsp;</td>
+		 </tr>
+		  <tr>
+				<td>
+					<h4 style="color:#050505;font-size:22px;line-height:22px;">Post-click health analysis for <a shref="<?php echo esc_html($content['landing_url']); ?>" target="_blank" style="color:#050505;text-decoration:none;"><?php echo esc_html($content['landing_url']); ?></a></h4>
+				</td> 
+		 </tr>
+				 <tr>
+					 <td style="line-height: 4x; font-size: 3px; height:50px; ">&nbsp;&nbsp;</td>
+				  </tr>
+	   </table>
+	   <table cellspacing="0" cellpadding="0" style="width:100%; line-height:0px;">
+		  <tr>
+			 <td style="width:250px;" valign="top">
+				<div style="line-height:0px;">
+				<img width="280" src="<?= CoreHelper::getImageOriginalPath($content['screenshot']) ?>" alt="Post Click Health Analysis" border="0" style="line-height:0px;" />
+				</div>
+			 </td>
+			 <td style="width:20px;" valign="top">&nbsp;</td>
+			 <td style="width:280px;" valign="top">
+				<div style="display:block;height: 5px; line-height: 5px;">&nbsp;</div>
+				<h5 style="color:#000; font-size:22px; line-height: 0px; "><?php 
+				$landingUrl =  preg_replace('/((^https?:\/\/)?(www\.)?)|(\/$)/', '', esc_html($content['landing_url']) );
+				$domain = explode('/', $landingUrl);
+				echo $domain[0];
+				?></h5>
+				<h6 style="color:#81868E; font-size:14px; line-height: 5px; "><?php echo $content['pdfTime'].' (UTC)'; ?> <br><br><br><br><br>
+				   <table width="250" style="width: 250px;" cellspacing="0" cellpadding="0">
+					  <tr>
+						 <td colspan="2" style="line-height: 2px; font-size: 2px;">&nbsp;&nbsp;</td>
+					  </tr>
+					  <tr>
+						 <td width="10px;" style="text-align:left;"><?php echo $content['graphs']['borderLineGraph']; ?></td>
+						 <td style="font-size:18px; line-height: 20px; color:#000000; font-weight: normal; width: 240px;"><?php echo $content['messages'] ?? ""; ?>
+						 </td>
+					  </tr>
+				   </table>
+				</h6>
+			 </td>
+			 <td style="width:50px;" valign="top"></td>
+			 <td style="width:300px; text-align: center;" >
+				    <table width="250" style="width: 250px; text-align:center; margin: 0 auto;" cellspacing="0" cellpadding="0">
+					  <tr>
+						 <td style="line-height: 2px;" colspan="2">
+							<h6 style="color:#000;font-size:22px; line-height: 1px; text-align: center; ">Post-click Score</h6>
+						 </td>
+					  </tr>
+					   <tr>
+							<td style="line-height: 3x; font-size: 3px; height:24px; " colspan="2">&nbsp;&nbsp;</td>
+						</tr>
+					  <tr>
+					     <td style="width: 50px;"></td>
+						 <td style="line-height: 20px; color:#000000; font-weight: normal; text-align:center;">
+						 <?php echo $content['graphs']['postclickScoreGraph']; ?> 
+						 </td>
+					  </tr>
+				   </table>
+			 </td>
+		  </tr>
+	   </table>
+	   <table cellspacing="0" cellpadding="0" style="width:100%;">
+		  <tr>
+			 <td style="line-height:20px; font-size: 5px; height:5px; ">&nbsp;&nbsp;</td>
+		  </tr>
+	   </table>
+	   <table cellspacing="0" cellpadding="0" style="width:100%;" valign="top">
+		  <tr>
+			 <td style="width:330px;" valign="middle">
+				<h4 style="color:#050505;font-size:20px;line-height:22px;">Performance of your landing page</h4>
+
+				 <table cellspacing="0" cellpadding="0" style="width:100%;" valign="middle">
+				    <tr>
+						<td width="350px" style="height:40px;" colspan="2"></td>
+					</tr>
+				 	<tr>
+						<td width="130px" style="color:#000;font-size:10px; line-height: 10px;">Device Centric</td>
+						<?php echo $content['graphs']['deviceCentricGraph']; ?>
+					</tr>
+					<tr>
+						<td width="350px" style="height:10px;" colspan="2"></td>
+					</tr>
+					<tr>
+						<td width="130px" style="color:#000;font-size:10px; line-height: 10px;">Message fit</td>
+						<?php echo $content['graphs']['messageFitGraph']; ?>
+					</tr>
+					<tr>
+						<td width="350px" style="height:10px;" colspan="2"></td>
+					</tr>
+					<tr>
+						<td width="130px" style="color:#000;font-size:10px; line-height: 10px;">Page speed</td>
+						<?php echo $content['graphs']['pageSpeedGraph']; ?> 
+					</tr>
+					<tr>
+						<td width="350px" style="height:10px;" colspan="2"></td>
+					</tr>
+					<tr>
+						<td width="130px" style="color:#000;font-size:10px; line-height: 10px;">Conversion UX</td>
+						<?php echo $content['graphs']['conversionGraph']; ?>
+					</tr>
+					<tr>
+						<td width="350px" style="height:10px;" colspan="2"></td>
+					</tr>
+					<tr>
+						<td width="130px" style="color:#000;font-size:10px; line-height: 10px;">Security and Content</td>
+						<?php echo $content['graphs']['securityGraph']; ?>
+					</tr>
+				 </table>
+
+				
+			 </td>
+			 <td style="width:70px;" valign="top">&nbsp;</td>
+			 <td style="width:600px;" valign="top">
+				<h4 style="color:#050505;font-size:20px;line-height:22px; text-align:center;">Annual Revenue Impact</h4>
+				<table width="450" style="width: 450px;" cellspacing="0" cellpadding="0">
+				   <tr>
+					  <td valign="top">
+						 <h4 style="color:#050505;font-size:18px;line-height:20px; text-align:center; font-weight:normal;"><?php echo $content['graphs']['annualGraph']; ?></h4>
+					  </td>
+				   </tr>
+				   <tr>
+					  <td style="line-height: 3x; font-size: 3px; height: 25px;">&nbsp;&nbsp;</td>
+				   </tr>
+				   <tr>
+					  <td style="color:#81868E; font-size:10px; line-height:14px; font-weight:normal;">
+						 <table>
+							<tr>
+							   <td style="text-align:center;"></td>
+							   <td style="color:#81868E; font-size:10px; line-height:14px; font-weight:normal; text-align:left;"></td>
+							   <td style="color:#81868E; font-size:10px; line-height:14px; font-weight:normal; text-align:left;"></td>
+							   <td style="color:#81868E; font-size:10px; line-height:14px; font-weight:normal; text-align:left;"></td>
+							   <td style="color:#81868E; font-size:10px; line-height:14px; font-weight:normal; text-align:left;"></td>
+							</tr>
+						 </table>
+					  </td>
+				   </tr>
+				   <tr>
+					  <td style="color:#000000;font-size:12px;line-height:12px; text-align:center;">
+						 <div style="color:#DA4963;font-size:18px;text-align:center; font-weight:bold;">US$ <?php echo $content['graphs']['currentRevenueLoss']; ?></div>
+						 Current Revenue Loss
+					  </td>
+				   </tr>
+				</table>
+			 </td>
+		  </tr>
+	   </table>
+	   <?php Component::render('Roi/InsightPdf', 'pdfFooter' );?>
+</div>

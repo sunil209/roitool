@@ -1,0 +1,106 @@
+@import '../../../../Assets/Src/SASS/Generic/Variables';
+@import '../../../../Assets/Src/SASS/Functions/SmoothScaling';
+@import '../../../../Assets/Src/SASS/Functions/Spacer';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.pc-roi-grid-flex{
+    display: flex;
+
+    @include media-breakpoint-down(md){
+        display: block;
+    }
+}
+
+.pc-howitworks-section{
+    position: relative;
+    
+        &:after{
+            @include media-breakpoint-up(md){
+                content:'';
+                height: 1px;
+                background-color: #D1D1D1;
+                width: 100%;
+                position: absolute;
+                top: 62px;
+                left: 0;
+                z-index: 1;
+            }
+            @include media-breakpoint-down(md){
+                display: none;
+            }
+        }
+    
+    .pc-howitworks-grid{
+        text-align: center;
+        position: relative;
+        z-index: 9;
+        max-width: 340px;
+        display: block;
+        margin: 0 auto;
+          
+                &:after{
+                    @include media-breakpoint-up(md){
+                        content:'';
+                        position: absolute;
+                        right:-7%;
+                        top:55px;
+                        width: 0; 
+                        height: 0; 
+                        border-top: 8px solid transparent;
+                        border-bottom: 8px solid transparent;
+                        border-left: 10px solid #050505;
+                    }
+                    @include media-breakpoint-down(md){
+                        display: none;
+                    }
+                }
+                &:last-child::after{
+                    @include media-breakpoint-up(md){
+                        display:none;
+                    }
+                }
+             
+                @include media-breakpoint-down(md){
+                    margin-bottom: spacer(8);
+                }
+
+
+            p{
+                font-size: 18px;
+                line-height: 31px;
+                text-align: center;
+                letter-spacing: 0.5px;
+                color: #171E29;
+            }
+
+            h6{
+                font-size: 22px;
+                line-height: 33px;
+                font-weight: bold;
+                color: #171E29; 
+            }
+    }
+    .pc-howitworks-icon{
+        background-color: #f8f8f8;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: table;
+        margin-bottom: spacer(3);
+
+        .pc-howitworks-icon-wrapper{
+            display: table-cell;
+            vertical-align: middle;
+            img{
+                height: auto;
+                width: auto;
+            }
+        }
+    }
+}
+.pc-howitworks-footer-content{
+    p{
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,86 @@
+<?php
+/**
+ * Parametrs for this component's view
+ *
+ * @param array     $recommendationData
+ *                  string regular      Regular author photo URL
+ *                  string retina       Retina author photo URL
+ *
+ * Component's model so usage is simple:
+ *
+ * @example Basic example
+ * Component::render('Roi/Recommendations');
+ * @endexample
+ */
+
+use InstaWP\TemplateSystem\Component\Component;
+
+if( empty( $recommendationData ) && !is_array( $recommendationData ) )
+    return false;
+?>
+<div class="row insights-recommendations-row insight-recommendations-main-inner-wrap" id="recommendations">
+	<div class="insight-tab-insights-wrapper">
+			<?php  Component::render('Generic/ToolTipBar');	?>  
+			<?php 
+			if( !empty( $recommendationData ) ):
+				$index = 0;
+				foreach( $recommendationData as $contentIndex => $content ): 
+					if( isset( $content['insightData'] ) ):
+					$gaugeColor = $content['insightData']['color'];
+					$gaugeTransform = $content['insightData']['rec_percentage'];
+					$scorePercentage = $content['insightData']['percentage'];
+					?>
+					<div class="col-sm-12 col-md-12 roi-recomendation-card pc-mb-static-7 <?php if( isset($index) && $index === 0 ) {  echo 'pc-mt-static-10 first-recomendation-card'; }else{ echo 'pc-mt-static-7'; } ?>  pc-pb-static-7">
+						<div class="roi-recomendation-wrap">
+							<div class="roi-recomendation-inner roi-recomendation-grid">
+								<div class="roi-card-recommendation-box">
+									<div class="roi-recommendation-content">
+										<h6 class="roi-card-heading">
+											<?=($contentIndex + 1)?>. 
+											<?= esc_html($content['recommendation_label'] ?? "");?></h6>
+										<p>
+											<?= esc_html($content['recommendation_description'] ?? "");?>
+										</p> 
+										<div class="recommendation-points hide-page">
+											<div class="roi-recommendation-subheading">Your Results</div>
+											<ul class="roi-recomend-results roi-recommendation-results">
+												<?= ($content['recommendation_results'] ?? "");?>
+											</ul>
+											<div class="roi-recommendation-subheading">Things to improve</div>
+											<ul class="roi-recomend-results roi-recommendation-improve">
+												<?= ($content['recommendation_points'] ?? "");?>
+											</ul>
+										</div>
+										<div class="our-recommendation-wrap">
+											  <span class="our-recommendation">
+												  <span>
+													Our recommendations</span><svg class="pc-button-icon" width="12" height="12" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path class="pc-button-icon-arrow" d="M0 7.83594H15.0847" stroke-width="2"></path>
+													<path class="pc-button-icon-arrow" d="M10.6632 1.99975L16.4993 7.83594L10.6632 13.6721" stroke-width="2"></path>
+													</svg>
+												</span>
+										</div>
+									</div>
+									<div class="roi-recommendation-graph">
+											<h6 class="roi-card-heading roi-mob-graph-heading">
+											<?=($contentIndex + 1)?>. 
+											<?= esc_html($content['recommendation_label'] ?? "");?></h6>
+										<div class="gauge">
+											<span class="roi-gauge-text roi-gauge-intial">0</span>
+											<span class="roi-gauge-text roi-gauge-final">100</span>
+											<span class="roi-gauge-text roi-gauge-industry">Industry average</span>
+											<span class="roi-gauge-title">Your Score</span>
+											<span class="roi-gauge-percentage"><?= $scorePercentage; ?></span>
+											<div class="gauge__body">
+												<div class="gauge__fill" style="background: <?=$gaugeColor?>; transform: rotate(<?=$gaugeTransform?>turn)" ></div>
+												<div class="gauge__cover"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			<?php endif; $index++; endforeach; endif; ?>
+	</div>
+</div>

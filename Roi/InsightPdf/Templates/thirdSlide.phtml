@@ -1,0 +1,17 @@
+<?php 
+   use InstaWP\TemplateSystem\Component\Component;
+   use Postclick\Helpers\CoreHelper;
+ ?>
+
+<div style="border-color:#fff;">
+   <h2 style="color:#000;font-size:36px;line-height:40px;"><?= esc_html($thirdSlideContent['title'] ?? ''); ?></h2>
+   <?php if( isset($thirdSlideContent['subsections']) && !empty( $thirdSlideContent['subsections'] ) && is_array( $thirdSlideContent['subsections'] ) ):  ?>
+      <?php foreach( $thirdSlideContent['subsections'] as $analysisKey => $analysisPoints ): ?>
+         <h6 style="color:#000;font-size:22px;"><?php echo  $analysisKey + 1; ?>. <?= esc_html($analysisPoints['headline'] ?? ''); ?></h6>
+         <p style="font-size:18px;"><?= esc_html($analysisPoints['text'] ?? ''); ?></p>
+      <?php endforeach; ?>
+   <?php endif; ?>
+   <?php if($pdfFooter['text_with_image_image']) : ?>
+           <img width="111" height="22" src="<?= CoreHelper::getImageOriginalPath($pdfFooter['text_with_image_image']['id']); ?>" alt="<?= esc_html($pdfFooter['text_with_image_image']['alt'] ?? ''); ?>" />
+   <?php endif; ?>
+</div>

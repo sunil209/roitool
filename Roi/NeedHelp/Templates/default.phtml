@@ -1,0 +1,67 @@
+<?php
+/**
+ * Roi Need Help Section default template
+ *
+ *
+ * @example Usage
+ * Component::render('Roi/NeedHelp');
+ * @endexample
+ */
+
+use InstaWP\TemplateSystem\Component\Component;
+?>
+<div class="pc-insight-copy-input-area pc-help-email-input-area">
+    <form class="js-form-validation js-nonce-form" id="pc-roi-need-help" method="post" action="" autocomplete="off" name="pc-roi-need-help">
+        <?php                   
+                Component::render(
+                    'Generic/FormField',
+                    'hidden',
+                    [
+                        'name' => 'needHelpSelection',                                
+                        'value' => '',
+                        'id' => 'hiddenSelection'
+                    ]
+                );
+
+                Component::render(
+                    'Generic/FormField',
+                    'hidden',
+                    [
+                        'name' => 'email_address',                                
+                        'value' => '',
+                        'id' => 'ref_email_address'
+                    ]
+                );
+        ?>
+
+        <div class="roi_help_row">
+            <?php
+                    Component::render(
+                        'Generic/FormField',
+                        [
+                            'type' => 'email',
+                            'name' => 'needHelpEmail',
+                            'isError' => false,
+                            'isRequired' => true,
+                            'requiredMessage' => 'Please fill your Email',
+                            'value' => ''
+                        ]
+                    );
+                    
+                    Component::render(
+                        'Generic/Button',
+                        [
+                            'button' => [
+                                'class' => 'pc-button-medium pc-button-outline pc-button-dark need-help-button',
+                                'type' => 'outline',
+                                'text' => 'Send',
+                                'url' => '#'
+                            ]
+                        ]
+                    ); 
+            ?>   
+        </div>
+
+
+    </form>    
+</div>
