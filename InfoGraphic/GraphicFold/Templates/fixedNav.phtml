@@ -1,0 +1,49 @@
+<?php
+/**
+ * Template file. Template params are stored in $params array
+
+ * @param bool   $isBackgroundDark             Deciding if Navbar is in light or dark mode
+ *
+ * @example Usage
+ * Component::render('Generic/RoiNavbar');
+ * @endexample
+ */
+
+use InstaWP\TemplateSystem\Component\Component;
+
+?>
+
+<nav class="pc-info-grapahic-nav pc-roi-navbar pc-background-transparent-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pc-roi-navbar-container justify-content-between align-items-center">
+                <a href="<?= get_home_url(); ?>">
+                    <?php    if ($coloredLogo ?? false) :
+                             include get_template_directory().'/src/Components/Generic/RoiNavbar/Images/logo.svg'; 
+                     else: 
+                             include get_template_directory().'/src/Components/Generic/RoiNavbar/Images/Icon-postclick.svg'; 
+                     endif;
+                     ?>
+                  
+                </a>
+                <div class="pc-roi-navbar-menu">
+                    <div class="pc-roi-navbar-menu-list-button">
+                        <?php
+                            Component::render(
+                                'Generic/Button',
+                                [
+                                    'button' => [
+                                        'class' => 'pc-button-small pc-button-outline pc-button-dark',
+                                        'type' => 'outline',
+                                        'text' => 'Get started',
+                                        'url' => '/my-score-step'
+                                    ]
+                                ]
+                            ); 
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

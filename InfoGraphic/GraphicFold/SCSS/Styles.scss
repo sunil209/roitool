@@ -1,0 +1,714 @@
+@import '../../../../Assets/Src/SASS/Generic/Variables';
+@import '../../../../Assets/Src/SASS/Functions/SmoothScaling';
+@import '../../../../Assets/Src/SASS/Functions/Spacer';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.fp-tableCell {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fp-auto-height.fp-section,
+.fp-auto-height .fp-slide,
+.fp-auto-height .fp-tableCell{
+    height: auto !important;
+}
+
+
+#info-graphic-section-11{
+    @include media-breakpoint-down(sm){ 
+        height: auto !important;
+    } 
+
+    .fp-tableCell,
+    .fp-slide{
+        @include media-breakpoint-down(sm){ 
+            height: auto !important;
+        }   
+    }
+}
+
+.pc-info-grapahic-nav{
+    position: fixed;
+    background-color: #050505;
+}
+
+.lattoie-mobile-only{
+    display: none !important;
+    @include media-breakpoint-down(sm){ 
+        display: flex !important;
+    }
+}
+.lattoie-desktop-only{
+    @include media-breakpoint-down(sm){ 
+        display: none !important;
+    }
+}
+
+.info-graphic-wrapper{
+    #menu-primary-navigation{
+        opacity: 0;
+        visibility: hidden;
+        .pc-megamenu-menu-list-link{
+            @media (max-width: $max_insight_header_space) {     
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+        
+        @media (max-width: $max_navbar_mobile_space) { 
+            display: none;
+        } 
+    }
+
+    .pc-background-transparent-dark{
+        @include media-breakpoint-down(sm){ 
+            background-color: #050505;
+        }
+    }
+}
+
+.info-graphic-wrapper{
+        .pc-megamenu{
+            top:0px;
+            @media (max-width: $max_navbar_mobile_space) {
+                top:0px;
+            } 
+
+            &.is-sticky{
+                border-bottom: 1px solid #050505; 
+                background-color: #050505;
+                --text_color: #ffffff;
+                --background_color: #050505;
+            }
+
+            .pc-button-dark {
+                --button_color: #ffffff;
+            }
+        }
+}
+
+.info-graphic-section{
+    padding-top: 80px !important;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-down(sm){ 
+        padding-top: 40px !important;
+    }
+
+    &.info-graphic-section-1{
+        padding-bottom: 50px;
+    }
+
+    &.info-graphic-section-2{
+        padding-bottom: 0px;
+    }
+
+    &.info-graphic-section-3{
+        padding-top: 0px;
+    }
+
+
+    &.info-graphic-section-9{
+        @media (max-width: $max_navbar_mobile_space) { 
+            padding-top: 40px;
+        } 
+    }
+
+    &.info-graphic-section-10{
+        @media (max-width: $max_navbar_mobile_space) { 
+            padding-top: 40px;
+        } 
+    }
+
+    &.info-graphic-section-11{
+        @include media-breakpoint-down(sm){ 
+            padding-top: 60px !important;
+        } 
+    }
+
+ 
+
+    h1,h2,h3,h4,h5,h6,p,ul,li{
+        color:$color_white;
+    }
+
+    p{
+        @include media-breakpoint-down(sm){ 
+            font-size: 16px;
+            line-height: 18px;
+        } 
+    }
+
+    ul{
+        list-style: none;
+        padding: 0px;
+        @include media-breakpoint-down(sm){ 
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+    }
+
+    lottie-player{
+        width: 100%;
+    }
+
+    h2{
+        margin-bottom: 16px;
+        @media (max-width: $max_navbar_mobile_space) {
+            font-size: 34px;
+        } 
+
+        @include media-breakpoint-down(sm){ 
+            font-size: 30px;
+            line-height: 32px;
+            margin-bottom: 8px;
+        }
+    }
+
+    h3{
+        margin-bottom: 16px;
+        @include media-breakpoint-down(sm){ 
+            font-size: 24px;
+            line-height: 26px;
+            margin-bottom: 8px;
+        }
+    }
+
+    h6{
+        margin-bottom: 16px;
+    }
+
+    h5{
+        margin-bottom: 0px;
+    }
+
+    &.info-graphic-section-1{
+
+        lottie-player{
+            max-width: 787px;
+            width: 95%;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 460px;
+                width: 95%;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) { 
+                width: 75%;
+            }
+
+            @include media-breakpoint-down(md){ 
+                width: 80%;
+            }
+            @include media-breakpoint-down(sm){ 
+                width: 90%;
+            }
+        }
+
+        .info-header-content {
+            margin-bottom: 30px;
+            padding-top: 30px;
+            @media (max-width: $max_navbar_mobile_space) {
+                margin-bottom: 50px;
+            }
+        }
+    }
+
+    &.info-graphic-section-2{
+        lottie-player{
+            max-width: 800px; 
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 600px;
+                width: 95%;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) { 
+                width: 75%;
+            }
+
+            @include media-breakpoint-down(md){ 
+                width: 80%;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                width: 95%;
+            }
+        }
+
+        .info-header-content {
+            margin-bottom: 45px;
+
+            @include media-breakpoint-down(sm){ 
+                margin-bottom: 25px;
+            }
+
+            p br{
+                @media (max-width: $max_navbar_mobile_space) { 
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.info-graphic-section-3{
+        lottie-player{
+            max-width: 505px;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 420px;
+                width: 100%;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                width: 90%;
+            }
+
+        }
+    }
+
+    &.info-graphic-section-4{
+        lottie-player{
+            max-width: 888px;
+            width: 100%;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 650px;
+                height: auto;
+            }
+
+            @media (max-width: $max_insight_header_space) {
+                max-width: 600px;
+                height: auto;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) {
+                max-width: 580px;
+                height: auto;
+            }
+            @include media-breakpoint-down(md){ 
+                max-width: 530px;
+                height: auto;
+            }
+        }
+        h3{
+            margin-bottom: 40px;
+            @media (max-width: $max_infographic_space) {
+                margin-bottom: 15px;
+            }
+            @include media-breakpoint-down(sm){ 
+                margin-bottom: 15px;
+            }
+        }
+        .info-header-content {
+            margin-bottom: 80px;
+
+            @media (max-width: $max_infographic_space) {
+                margin-bottom: 40px;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                margin-bottom: 20px;
+            }
+
+            p br{
+                @media (max-width: $max_navbar_mobile_space) { 
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.info-graphic-section-5{
+        lottie-player{
+            max-width: 797px;
+            width: 90%;
+
+            @media (max-width: $max_infographic_space) {
+               max-width:500px;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) {
+                width: 70%;
+                height: auto;
+            }
+            @include media-breakpoint-down(sm){ 
+                width: 95%;
+            }
+        }
+    }
+
+    &.info-graphic-section-6{
+        lottie-player{
+            max-width: 480px;
+            width: 100%;
+
+            @media (max-width: $max_infographic_space) {
+                width: 90%;
+             }
+        }
+
+        .info-header-content {
+            padding-left: 50px;
+            @media (max-width: $max_navbar_mobile_space) { 
+                padding-left: 0px;
+                margin-top: 40px;
+            }
+            
+            @include media-breakpoint-down(sm){ 
+                margin-top: 15px;
+            }
+        }
+    }
+
+    &.info-graphic-section-7{
+        lottie-player{
+            max-width: 584px;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 500px;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) { 
+                width: 95%;
+                height: auto;
+            }
+        }
+
+        .info-header-content {
+            @media (max-width: $max_navbar_mobile_space) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    &.info-graphic-section-8{
+        lottie-player{
+            max-width: 480px;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 380px;
+                width: 100%;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) {
+                width: 90%;
+                height: auto;
+            }
+            @include media-breakpoint-down(sm){ 
+                width: 75%;
+            }
+        }
+        .info-header-content {
+            margin-bottom: 100px;
+
+            @media (max-width: $max_navbar_mobile_space) { 
+                margin-bottom: 40px;
+            }
+            @include media-breakpoint-down(sm){ 
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &.info-graphic-section-9{
+        lottie-player{
+            max-width: 688px;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 520px;
+                width: 100%;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) { 
+                width: 85%;
+                height: auto;
+            }
+            @include media-breakpoint-down(sm){ 
+                margin-bottom: 15px;
+            }
+
+        }
+        .info-header-content {
+            margin-bottom: 110px;
+            @media (max-width: $max_navbar_mobile_space) { 
+                margin-bottom: 40px;
+                margin-top: 40px;
+            }
+            @include media-breakpoint-down(sm){ 
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+            
+            br{
+                display: none; 
+            }
+        }
+    }
+
+    &.info-graphic-section-10{
+        lottie-player{
+            max-width: 792px;
+            height: auto;
+
+            @media (max-width: $max_infographic_space) {
+                max-width: 525px;
+                width: 95%;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) {
+                width: 75%;
+                height: auto;
+            }
+            @include media-breakpoint-down(sm){ 
+                width: 90%;
+                height: auto;
+            }
+        }
+        .info-header-content {
+            margin-bottom: 100px;
+            @media (max-width: $max_navbar_mobile_space) { 
+                margin-bottom: 40px;
+            }
+        }
+    }
+    
+    &.info-graphic-section-11{
+        lottie-player{
+            height: auto;
+            @include media-breakpoint-down(sm){ 
+                width: 80%;
+                height: auto;
+            }
+        }
+    }
+
+    .info-reset-inner-container{
+        max-width: 1000px;
+        margin:0 auto;
+        @media (max-width: $max_navbar_mobile_space) { 
+            margin-right: -20px;
+            margin-left: -20px;
+        }
+    }
+    .info-reset-inner-container-2{
+        max-width: 1040px;
+        margin:0 auto;
+        @media (max-width: $max_navbar_mobile_space) { 
+            margin-right: -20px;
+            margin-left: -20px;
+        }
+    }
+}
+
+.info-reset-bottom-margin{
+    h2{
+        margin-bottom: 0px;
+    }
+}
+
+.info-graphic-cta{
+     padding-top: 50px;
+     padding-bottom: 120px;
+
+     @media (max-width: $max_infographic_space) {
+        padding-bottom: 40px;
+     }
+
+    .pc-button-full{
+        color: #050505;
+        &:hover,
+        &:focus{
+            color: #ffffff;
+        }
+    }
+
+    .pc-button-medium{
+        max-width: 280px;
+        width: 100%;
+
+        span{
+            text-align: center !important;
+            display: inline-block !important;
+        }
+    }
+}
+
+.lottie-graphic-center{
+    margin:0 auto;
+}
+
+.lottie-graphic-right{
+    margin: 0 0 0 auto;
+    @include media-breakpoint-down(sm){ 
+        margin: 0 auto;
+    }
+}
+
+.pc-self-align{
+    align-items: center;
+    align-self: center;
+}
+
+
+.pc-multiplatforms{
+    position: relative;
+    color:$color_white;
+    lottie-player{
+       max-width: 886x;
+       height: 579px;
+       width: 100%; 
+       @media (max-width: $max_navbar_mobile_space) { 
+          height: auto;
+       } 
+    }
+
+    .pc-multiplatforms-text {
+        position: absolute;
+        font-size: 18px;
+        line-height: 31px;
+        letter-spacing: 0.5px;
+        text-align: left;
+        z-index: 1;
+
+        h5{
+            color:$color_white;
+            font-weight: normal;
+            font-size: 18px;
+
+            @media (max-width: $max_infographic_space) {
+                font-size: 15px;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                font-size: 10px;
+            }
+            span{
+                font-weight: bold;
+                font-size: 28px;
+                @media (max-width: $max_navbar_mobile_space) {
+                    font-size: 18px;
+                }
+                @include media-breakpoint-down(sm){ 
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &.pc-multiplatforms-top {
+            top: 10px;
+            width: 480px;
+            left: 0px;
+
+            @media (max-width: $max_infographic_space) {
+                top: -15px;
+            }
+
+            @media (max-width: $max_insight_header_space) {
+                top: -25px;
+                max-width: 390px;
+                width: 100%;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                    top: 0px;
+                    width: 56%;
+                    left: 0px;
+            } 
+        }
+
+        &.pc-multiplatforms-middle {
+            top: 130px;
+            width: auto;
+            right: 115px;
+
+            @media (max-width: $max_infographic_space) {
+                right: 24%;           
+            }
+
+            @media (max-width: $max_insight_header_space) {
+                right: 15%;
+                top: 27%;            
+            }
+
+            @media (max-width: $max_navbar_mobile_space) {
+                top: 135px;
+                width: auto;
+                right: 90px;
+            }
+
+            @include media-breakpoint-down(md){ 
+                top: 50%;
+                right: 0%;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                    top: 77%;
+                    right: 0px;
+            }
+        }
+
+        &.pc-multiplatforms-bottom {
+            bottom: 115px;
+            width: 480px;
+            right: 80px;
+
+            @media (max-width: $max_insight_header_space) {
+                bottom: 10%;
+                right: 5%;
+            }
+
+            @media (max-width: $max_navbar_mobile_space) { 
+                bottom: 0px;
+                right: 80px;
+            }
+
+           
+            @include media-breakpoint-down(md){ 
+                width: 360px;
+                right: 0px;
+                bottom: 40px;
+            }
+
+            @include media-breakpoint-down(sm){ 
+                bottom: -35px;
+                width: 50%;
+                right: 0px;
+            }
+        }
+    }
+
+}
+
+.lattoie-roas-wrapper{
+    padding-top: 48px;
+    max-width: 280px;
+    margin: 0 auto;
+    height: 100%;
+
+    @media (max-width: $max_infographic_space) {
+        padding-top: 35px;
+        max-width: 250px;         
+    }
+
+    @include media-breakpoint-down(sm){ 
+        padding-top: 0px;
+        width: auto;
+        display: block;
+        margin: 0px;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.lattoie-roas-col{
+    @include media-breakpoint-down(sm){ 
+        padding-top: 15px;
+        padding-bottom: 20px;
+    } 
+}
