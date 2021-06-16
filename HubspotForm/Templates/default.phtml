@@ -1,0 +1,168 @@
+<?php
+/**
+ * Template file. Template params are stored in $params array
+ *
+ * @param string $headerBackgroundClass  Extra class for e.g. colored background.
+ * @param bool   $isShowcase             Deciding if layout is default or showcase
+ * @param array  $headerImage            Array of data about image - id, url, sizes etc.
+ * @param array  $headerImageRetina      Array of data about retina image - id, url, sizes etc.
+ * @param array  $heading                Array containing title and subtitle.
+ * @param array  $button                 The array for a button text, url, class, type.
+ *
+ * @example Usage
+ * Component::render('Generic/CaseHeader');
+ * @endexample
+ */
+
+use InstaWP\Modules\FormModule\FormModule;
+use InstaWP\Modules\FormModule\FormResponse;
+use InstaWP\TemplateSystem\Component\Component;
+
+?>
+<div class="pc-hubspot-form-wrapper">
+    <div class="pc-loader pc-hubspot-loader" id="pc-hubspot-form-loader"></div>
+        <div class="pc-hubspot-singlestep-form" id="pc-HubspotForm" style="display:none;">
+            <h5 class="ps-singlestep-heading ps-center-desktop"><?= esc_html($popupTitle ?? '') ?></h5>
+
+            <script>
+                    "use strict";
+                    function LoadZoomInfo(form_id){
+                        window._zi = {formId: form_id};
+                        var zi = document.createElement('script');
+                            zi.type = 'text/javascript';
+                            zi.async = true;
+                            zi.src = 'https://ws-assets.zoominfo.com/formcomplete.js';
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(zi, s);
+                    }
+
+                    var hsFormId = '<?= $formID ?>';
+                    if(hsFormId == 'b992d5ab-4e12-46c5-b2ac-1ccd4deaf533'){
+                        setTimeout(function(){ 
+                            LoadZoomInfo('XZMF3dtckyWpSt0DmgB4');
+                        }, 3000)
+                    }
+
+                    if(hsFormId == '0a504066-62af-4ccb-ae1c-22792840ee37'){
+                        setTimeout(function(){ 
+                            LoadZoomInfo('eEk4jykxuN58Ep0y6rgb');
+                        }, 3000)
+                    }
+
+            </script>
+
+            <script src="https://js.chilipiper.com/marketing.js" type="text/javascript"></script>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                <script>
+                    hbspt.forms.create({
+                        portalId: "<?= esc_html($portalID) ?>",
+                        formId: "<?= esc_html($formID) ?>",
+                        translations: {
+                                en: {
+                                    phoneInvalidCharacters: "Must contain only numbers, +()-.",
+                                    forbiddenEmailDomain : "Please enter your business email."
+                                }
+                            }
+                    });
+                    window.addEventListener('message', event => {
+                        if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+                            
+                            if(event.data.id == '0a504066-62af-4ccb-ae1c-22792840ee37'){
+                                let roi_copy_link = document.getElementById("roi_copy_link").value;
+                                let roi_pdf_url = document.getElementById("roi_pdf_url").value;
+                                document.querySelector('input[name=roi_copy_link]').value = roi_copy_link; 
+                                document.querySelector('input[name=roi_pdf_url]').value = roi_pdf_url; 
+
+                            }
+                            document.getElementById('pc-hubspot-form-loader').style.display = 'none';
+                            document.getElementById('pc-HubspotForm').style.display = 'block';
+
+
+                            var GTMValues = {
+                                            readCookie : function(cname) {
+
+                                                var name = cname + "=";
+                                                var decodedCookie = decodeURIComponent(document.cookie);
+                                                var ca = decodedCookie.split(';');
+                                                for(var i = 0; i <ca.length; i++) {
+                                                    var c = ca[i];
+                                                    while (c.charAt(0) == ' ') {
+                                                        c = c.substring(1);
+                                                    }
+                                                    if (c.indexOf(name) == 0) {
+                                                        return c.substring(name.length, c.length);
+                                                    }
+                                                }
+                                                return "";
+                                            }
+                                        };
+                                        setTimeout(function() {
+                                            const ps_utm_source   = document.querySelector('input[name=utm_source]'); 
+                                            const ps_utm_medium   = document.querySelector('input[name=utm_medium]'); 
+                                            const ps_utm_campaign = document.querySelector('input[name=utm_campaign]'); 
+                                            const ps_utm_term     = document.querySelector('input[name=utm_term]'); 
+                                            const ps_utm_content  = document.querySelector('input[name=utm_content]'); 
+                                            if(ps_utm_source){
+                                                ps_utm_source.value = GTMValues.readCookie("__ft_utm_source");
+                                            }
+                                            if(ps_utm_medium){
+                                                ps_utm_medium.value = GTMValues.readCookie("__ft_utm_medium");
+                                            }
+                                            if(ps_utm_campaign){
+                                                ps_utm_campaign.value = GTMValues.readCookie("__ft_utm_campaign");
+                                            }
+                                            if(ps_utm_term){
+                                                ps_utm_term.value = GTMValues.readCookie("ft_utm_term");
+                                            }
+                                            if(ps_utm_content){
+                                                ps_utm_content.value = GTMValues.readCookie("ft_utm_content");
+                                            }
+
+                                        }, 500);
+
+                        }
+                        
+                        if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+                            const getLoader   = document.querySelector('#PopupLoader'); 
+                            const getCrossBtn   = document.querySelector('.pc-popup-close'); 
+                            if(getLoader){
+                                getLoader.classList.remove('pc-is-hidden');
+                            }
+                            if(getCrossBtn){
+                                getCrossBtn.classList.add('pc-is-hidden');
+                            }
+
+                            
+                            if(event.data.id == 'b992d5ab-4e12-46c5-b2ac-1ccd4deaf533' || event.data.id == '0a504066-62af-4ccb-ae1c-22792840ee37'){
+                                        var formKeyValue = event.data.data;
+                                        var data = {}
+                                        formKeyValue.forEach(function(el) {
+                                                data[el.name] = el.value
+                                        })
+
+                                        ChiliPiper.submit('postclick', 'demo_router', {
+                                            title: 'Thanks! What time works best for a quick call?',
+                                            map: true,
+                                            lead: {
+                                                    FirstName: data.firstname,
+                                                    LastName: data.lastname,
+                                                    Email: data.email,
+                                                    Company: data.company,
+                                                    Phone: data.phone
+                                                },
+                                            })
+
+                                        
+                            }
+
+
+                        }
+
+                        if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
+                          //  window.location.href = "<?= site_url('thank-you')?>";
+                        }
+
+                    });
+                </script>
+    </div>
+</div>

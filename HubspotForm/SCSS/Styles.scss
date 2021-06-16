@@ -1,0 +1,148 @@
+@import '../../../../Assets/Src/SASS/Generic/Variables';
+@import '../../../../Assets/Src/SASS/Functions/SmoothScaling';
+@import '../../../../Assets/Src/SASS/Functions/Spacer';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.pc-hubspot-form-wrapper{
+    background-color: #{$color_dark};
+    position: relative;
+    @include media-breakpoint-down(xs) {
+        min-height: 100px;
+    }
+}
+
+.pc-hubspot-singlestep-form{
+    background-color:#{$color_white};
+    position: relative;
+    @include media-breakpoint-up(md) {
+        margin-top: 58px;
+        margin-bottom: 52px;
+    }
+    .hs-form{
+        padding: 0px 32px 32px 32px;
+        @include media-breakpoint-down(sm) {
+            max-width: 100%;
+            padding-right: smoothScalingMobile(spacer(3), 0.6);
+            padding-left: smoothScalingMobile(spacer(3), 0.6);
+        }
+
+        .actions{
+            margin-top: 10px;
+        }
+    }
+
+    .ps-center-desktop{
+        @include media-breakpoint-up(md) {
+            text-align: center;
+            padding-right: smoothScalingMobile(spacer(2), 0.6);
+            padding-left: smoothScalingMobile(spacer(2), 0.6);
+            padding-top: smoothScaling(spacer(4), 0.6);
+        }
+        @include media-breakpoint-down(sm) {
+            text-align: left;
+            padding-right: smoothScalingMobile(spacer(3), 0.6);
+            padding-left: smoothScalingMobile(spacer(3), 0.6);;
+            padding-top: smoothScalingMobile(spacer(4), 0.6);
+            
+        }
+    }
+
+    .hs-form-field{
+            padding-bottom: 24px;
+            position: relative;
+            margin-bottom: 0px;
+        .hs-input{
+            outline: 1px solid #81868E;
+            background: #F8F8F8;
+            &.error{
+                outline: 1px solid #FF6F61;
+            }
+        }
+        .hs-error-msg{
+            font-size: 16px;
+            position: absolute; 
+            margin: 0px;
+            color: #FF6F61;
+            text-transform: inherit;
+        }
+
+        .hs-error-msgs{
+            margin: 0px;  
+        }
+    }
+    label{
+        span.hs-form-required {
+            margin-left: 3px;
+        }
+    }
+    
+    .hs-form-field {
+        .hs-input{
+            min-height: 50px;
+        }
+    }
+
+    .hs_error_rollup{
+        .hs-error-msgs li label {
+            font-size: 16px;
+            color: #FF6F61;
+            text-transform: capitalize;
+            display: none;
+        }
+    } 
+    
+    @include media-breakpoint-down(sm) {
+        margin-top: smoothScalingMobile(spacer(6), 0.6);
+    }
+
+    .hs_email{
+        .hs-error-msgs li+li {
+            padding-top: 22px;
+            display: none;
+        }
+    }
+
+}
+
+
+
+
+.pc-singlestep-fieldset-wrapper {
+    padding: smoothScalingMobile(spacer(4), 0.6) smoothScalingMobile(spacer(3), 0.6);
+    @include media-breakpoint-up(md) {
+        padding: smoothScaling(spacer(4), 0.6);
+    }
+}
+
+.pc-singlestep-form-fieldset {
+    @include transition(.2s, opacity);
+
+    &.pc-is-invisible {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0 12px;
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.pc-sign-up-singlestep {
+    @include media-breakpoint-down(sm) {
+        margin-top: smoothScalingMobile(spacer(6), 0.6);
+    }
+}
+
+.ps-singlestep-heading {
+    margin-bottom: 25px;
+    color: #000000;
+}
+
+.pc-loader{
+    &.pc-hubspot-loader{
+        @include media-breakpoint-down(xs) {
+            margin-top: 50px;
+        }
+    }
+}
